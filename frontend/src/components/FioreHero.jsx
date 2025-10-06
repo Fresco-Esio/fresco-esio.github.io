@@ -84,13 +84,11 @@ export default function FioreHero(){
           <circle cx="0" cy="0" r="210" fill="url(#fioreCanvasGlow)"/>
           <g id="petals" filter="url(#fioreSoftBloom)" style={{mixBlendMode:'screen', isolation:'isolate'}}>
             {Array.from({length:8}).map((_,i)=>(
-              <motion.g key={i} id={`petal-${i}`} transform={`rotate(${i*45})`}
-                        whileHover={{ scale:1.02, filter:'drop-shadow(0 0 18px rgba(140,170,255,.9))' }}
-                        transition={{ duration:.18, ease:easeSnap }}>
+              <g key={i} id={`petal-${i}`} transform={`rotate(${i*45})`}>
                 <use href="#fiorePetal" fill="url(#fiorePetalCore)"   opacity=".55"/>
                 <use href="#fiorePetal" fill="url(#fiorePetalBody)"   opacity=".66"/>
                 <use href="#fiorePetal" fill="url(#fiorePetalFeather)" opacity=".42"/>
-              </motion.g>
+              </g>
             ))}
           </g>
 
