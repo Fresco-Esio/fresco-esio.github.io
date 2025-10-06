@@ -48,12 +48,12 @@ export default function FioreHero(){
         {/* Fresh SVG - matches reference visual */}
         <svg width="660" height="660" viewBox="-330 -330 660 660" role="img" aria-label="Fiore Flower">
           <defs>
-            {/* Radial gradient for each petal - subtle, natural fade */}
+            {/* Radial gradient for each petal - highly transparent, glassy */}
             <radialGradient id="petalGrad" cx="50%" cy="70%">
-              <stop offset="0%" stopColor="#B5CBFF" stopOpacity="0.70"/>
-              <stop offset="40%" stopColor="#95B5FF" stopOpacity="0.60"/>
-              <stop offset="75%" stopColor="#7A9FE8" stopOpacity="0.45"/>
-              <stop offset="100%" stopColor="#6888D0" stopOpacity="0.25"/>
+              <stop offset="0%" stopColor="#B5CBFF" stopOpacity="0.40"/>
+              <stop offset="40%" stopColor="#95B5FF" stopOpacity="0.32"/>
+              <stop offset="75%" stopColor="#7A9FE8" stopOpacity="0.22"/>
+              <stop offset="100%" stopColor="#6888D0" stopOpacity="0.10"/>
             </radialGradient>
 
             {/* Subtle glow filter */}
