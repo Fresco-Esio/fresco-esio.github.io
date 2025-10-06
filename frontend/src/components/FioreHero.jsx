@@ -103,39 +103,39 @@ export default function FioreHero(){
           <svg width="660" height="660" viewBox="-400 -400 800 800" role="img" aria-label="Fiore Flower" style={{ width: '100%', height: '100%' }}>
             <defs>
               {/* Radial gradient for each petal - from bright center to translucent edges */}
-              <radialGradient id="petalGradient" cx="50%" cy="20%">
-                <stop offset="0%" stopColor="#6B8FFF" stopOpacity="0.85"/>
-                <stop offset="40%" stopColor="#4A6FE8" stopOpacity="0.65"/>
-                <stop offset="80%" stopColor="#3855C8" stopOpacity="0.35"/>
-                <stop offset="100%" stopColor="#2A3F9F" stopOpacity="0.15"/>
+              <radialGradient id="petalGradient" cx="50%" cy="15%">
+                <stop offset="0%" stopColor="#7BA4FF" stopOpacity="0.75"/>
+                <stop offset="35%" stopColor="#5B85E8" stopOpacity="0.55"/>
+                <stop offset="70%" stopColor="#4565C8" stopOpacity="0.35"/>
+                <stop offset="100%" stopColor="#2D4A9F" stopOpacity="0.1"/>
               </radialGradient>
 
-              {/* Glow filter for the luminous effect */}
-              <filter id="petalGlow" x="-50%" y="-50%" width="200%" height="200%">
-                <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur"/>
+              {/* Glow filter for subtle luminous effect */}
+              <filter id="petalGlow" x="-80%" y="-80%" width="260%" height="260%">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur"/>
                 <feColorMatrix in="blur" type="matrix"
                   values="1 0 0 0 0
-                          0 0.8 0 0 0
-                          0 0 1.2 0 0
-                          0 0 0 1 0" result="glow"/>
+                          0 0.9 0 0 0
+                          0 0 1.1 0 0
+                          0 0 0 0.8 0" result="glow"/>
                 <feBlend in="SourceGraphic" in2="glow" mode="screen"/>
               </filter>
 
               {/* Strong center glow */}
               <radialGradient id="centerGlow">
                 <stop offset="0%" stopColor="#FFFFFF" stopOpacity="1"/>
-                <stop offset="20%" stopColor="#A8C5FF" stopOpacity="0.9"/>
-                <stop offset="50%" stopColor="#6B8FFF" stopOpacity="0.6"/>
-                <stop offset="100%" stopColor="#4A6FE8" stopOpacity="0"/>
+                <stop offset="25%" stopColor="#D5E5FF" stopOpacity="0.85"/>
+                <stop offset="50%" stopColor="#8FAFFF" stopOpacity="0.5"/>
+                <stop offset="100%" stopColor="#5B85E8" stopOpacity="0"/>
               </radialGradient>
 
-              {/* Petal shape - teardrop/almond pointing outward */}
+              {/* Petal shape - wider teardrop/almond pointing outward */}
               <path id="petalShape"
                 d="M 0 0
-                   Q -35 -80, -25 -160
-                   Q -20 -200, 0 -220
-                   Q 20 -200, 25 -160
-                   Q 35 -80, 0 0 Z" />
+                   Q -55 -70, -45 -140
+                   Q -30 -190, 0 -210
+                   Q 30 -190, 45 -140
+                   Q 55 -70, 0 0 Z" />
             </defs>
 
             {/* Background glow emanating from center */}
