@@ -129,13 +129,13 @@ export default function FioreHero(){
                 <stop offset="100%" stopColor="#5B85E8" stopOpacity="0"/>
               </radialGradient>
 
-              {/* Petal shape - wider teardrop/almond pointing outward */}
+              {/* Petal shape - much wider teardrop/almond pointing outward */}
               <path id="petalShape"
                 d="M 0 0
-                   Q -55 -70, -45 -140
-                   Q -30 -190, 0 -210
-                   Q 30 -190, 45 -140
-                   Q 55 -70, 0 0 Z" />
+                   Q -85 -50, -75 -120
+                   Q -45 -175, 0 -200
+                   Q 45 -175, 75 -120
+                   Q 85 -50, 0 0 Z" />
             </defs>
 
             {/* Background glow emanating from center */}
