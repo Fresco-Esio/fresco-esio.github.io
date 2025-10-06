@@ -111,13 +111,13 @@ export default function FioreHero(){
               </radialGradient>
 
               {/* Glow filter for subtle luminous effect */}
-              <filter id="petalGlow" x="-80%" y="-80%" width="260%" height="260%">
-                <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur"/>
+              <filter id="petalGlow" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur"/>
                 <feColorMatrix in="blur" type="matrix"
                   values="1 0 0 0 0
-                          0 0.9 0 0 0
-                          0 0 1.1 0 0
-                          0 0 0 0.8 0" result="glow"/>
+                          0 0.85 0 0 0
+                          0 0 1.05 0 0
+                          0 0 0 0.6 0" result="glow"/>
                 <feBlend in="SourceGraphic" in2="glow" mode="screen"/>
               </filter>
 
