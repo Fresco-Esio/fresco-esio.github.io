@@ -2,16 +2,16 @@
 import { motion, useReducedMotion } from 'framer-motion'
 import React from 'react'
 
-// Polar coordinate calculation with elliptical orbit
-const R = 300;
-const SCALE_Y = 0.92;
+// Polar coordinate calculation for label positions
+const R = 340;
+const SCALE_Y = 1;
 
 const LABELS = [
-  { id:'art',      text:'ART',      deg: 160, r:R-25 },   // upper-left
-  { id:'music',    text:'MUSIC',    deg: 215, r:R-10 },   // left-lower
-  { id:'writing',  text:'WRITING',  deg: 270, r:R-15 },   // bottom-center
-  { id:'apps',     text:'APPS',     deg: 325, r:R-20 },   // right-lower
-  { id:'research', text:'RESEARCH', deg:   0, r:R-10 },   // right-mid
+  { id:'art',      text:'ART',      deg: 135, r:R },   // upper-left
+  { id:'music',    text:'MUSIC',    deg: 180, r:R },   // left
+  { id:'writing',  text:'WRITING',  deg: 270, r:R+30 },   // bottom
+  { id:'apps',     text:'APPS',     deg: 0, r:R },   // right
+  { id:'research', text:'RESEARCH', deg: 45, r:R },   // upper-right
 ];
 
 function polar(deg, r){
