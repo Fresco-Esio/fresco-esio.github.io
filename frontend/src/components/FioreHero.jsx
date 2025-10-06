@@ -104,10 +104,10 @@ export default function FioreHero(){
             <defs>
               {/* Radial gradient for each petal - from bright center to translucent edges */}
               <radialGradient id="petalGradient" cx="50%" cy="15%">
-                <stop offset="0%" stopColor="#7BA4FF" stopOpacity="0.75"/>
-                <stop offset="35%" stopColor="#5B85E8" stopOpacity="0.55"/>
-                <stop offset="70%" stopColor="#4565C8" stopOpacity="0.35"/>
-                <stop offset="100%" stopColor="#2D4A9F" stopOpacity="0.1"/>
+                <stop offset="0%" stopColor="#8FB8FF" stopOpacity="0.85"/>
+                <stop offset="30%" stopColor="#6A95E8" stopOpacity="0.70"/>
+                <stop offset="65%" stopColor="#4F75C8" stopOpacity="0.50"/>
+                <stop offset="100%" stopColor="#3555A0" stopOpacity="0.20"/>
               </radialGradient>
 
               {/* Glow filter for subtle luminous effect */}
