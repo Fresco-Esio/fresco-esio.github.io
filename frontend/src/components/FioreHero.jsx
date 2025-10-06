@@ -154,7 +154,7 @@ export default function FioreHero(){
                     <use 
                       href="#petalShape" 
                       fill="url(#petalGradient)"
-                      opacity="0.75"
+                      opacity="0.92"
                       style={{ mixBlendMode: 'screen' }}
                     />
                   </g>
