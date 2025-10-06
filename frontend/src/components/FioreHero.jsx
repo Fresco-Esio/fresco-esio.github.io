@@ -2,21 +2,20 @@
 import { motion, useReducedMotion } from 'framer-motion'
 import React from 'react'
 
-// Polar coordinate calculation for label positions
-const R = 340;
-const SCALE_Y = 1;
-
+const SCALE_Y = 0.92          // elliptical orbit like the mock
+const R = 300                 // label radius before ellipse squash
 const LABELS = [
-  { id:'art',      text:'ART',      deg: 135, r:R },   // upper-left
-  { id:'music',    text:'MUSIC',    deg: 180, r:R },   // left
-  { id:'writing',  text:'WRITING',  deg: 270, r:R+30 },   // bottom
-  { id:'apps',     text:'APPS',     deg: 0, r:R },   // right
-  { id:'research', text:'RESEARCH', deg: 45, r:R },   // upper-right
-];
-
-function polar(deg, r){
-  const t = (deg*Math.PI)/180;
-  return { x: r*Math.cos(t), y: (r*Math.sin(t))*SCALE_Y };
+  { id:'art',      text:'ART',      deg: 160, r: R-25 },
+  { id:'music',    text:'MUSIC',    deg: 215, r: R-10 },
+  { id:'writing',  text:'WRITING',  deg: 270, r: R-15 },
+  { id:'apps',     text:'APPS',     deg: 325, r: R-20 },
+  { id:'research', text:'RESEARCH', deg:   0, r: R-10 },
+]
+const easeSnap = [0.16,1,0.3,1]
+const easeSoft = [0.22,0.61,0.36,1]
+const xy = (r, deg) => {
+  const t = (deg*Math.PI)/180
+  return { x: r*Math.cos(t), y: (r*Math.sin(t))*SCALE_Y }
 }
 
 function FioreLabels(){
