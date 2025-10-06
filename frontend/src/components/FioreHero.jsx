@@ -139,7 +139,7 @@ export default function FioreHero(){
             </defs>
 
             {/* Background glow emanating from center */}
-            <circle cx="0" cy="0" r="280" fill="url(#centerGlow)" opacity="0.4"/>
+            <circle cx="0" cy="0" r="300" fill="url(#centerGlow)" opacity="0.3"/>
 
             {/* 8 Petals radiating at 45° intervals */}
             <g filter="url(#petalGlow)">
