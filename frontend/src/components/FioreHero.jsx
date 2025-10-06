@@ -100,84 +100,76 @@ export default function FioreHero(){
           className="relative"
           style={{ width: '660px', height: '660px', maxWidth: '90vw', maxHeight: '90vw' }}
         >
-          <svg width="660" height="660" viewBox="-330 -330 660 660" role="img" aria-label="Fiore Flower" style={{ width: '100%', height: '100%' }}>
+          <svg width="660" height="660" viewBox="-400 -400 800 800" role="img" aria-label="Fiore Flower" style={{ width: '100%', height: '100%' }}>
             <defs>
-              {/* Canvas halo under the flower */}
-              <radialGradient id="fioreCanvasGlow" cx="0" cy="0" r="1">
-                <stop offset="0%"   stopColor="#AFC2FF" stopOpacity=".18"/>
-                <stop offset="65%"  stopColor="#6270E8" stopOpacity=".06"/>
-                <stop offset="100%" stopColor="#0B0E1A" stopOpacity="0"/>
+              {/* Radial gradient for each petal - from bright center to translucent edges */}
+              <radialGradient id="petalGradient" cx="50%" cy="20%">
+                <stop offset="0%" stopColor="#6B8FFF" stopOpacity="0.85"/>
+                <stop offset="40%" stopColor="#4A6FE8" stopOpacity="0.65"/>
+                <stop offset="80%" stopColor="#3855C8" stopOpacity="0.35"/>
+                <stop offset="100%" stopColor="#2A3F9F" stopOpacity="0.15"/>
               </radialGradient>
 
-              {/* Petal translucency (body) */}
-              <linearGradient id="fiorePetalBody" x1="0" y1="-1" x2="0" y2="1">
-                <stop offset="0%"   stopColor="#B7C6FF" stopOpacity=".42"/>
-                <stop offset="55%"  stopColor="#8FA4FF" stopOpacity=".28"/>
-                <stop offset="100%" stopColor="#6E63F1" stopOpacity=".16"/>
-              </linearGradient>
-
-              {/* Inner light that creates the luminous center fade */}
-              <radialGradient id="fiorePetalCore" cx="0" cy="0" r="1">
-                <stop offset="0%"   stopColor="#D7E2FF" stopOpacity=".60"/>
-                <stop offset="70%"  stopColor="#9FB2FF" stopOpacity=".18"/>
-                <stop offset="100%" stopColor="#8CA0FF" stopOpacity="0"/>
-              </radialGradient>
-
-              {/* Subtle feather at the rim (cooler, bluish) */}
-              <radialGradient id="fiorePetalFeather" cx="0" cy="0" r="1">
-                <stop offset="70%"  stopColor="#A5B4FF" stopOpacity="0"/>
-                <stop offset="100%" stopColor="#BFD0FF" stopOpacity=".18"/>
-              </radialGradient>
-
-              {/* Soft bloom filter to avoid "vector crisp" look */}
-              <filter id="fioreSoftBloom" x="-200%" y="-200%" width="400%" height="400%">
-                <feGaussianBlur in="SourceGraphic" stdDeviation="2.75" result="blur"/>
+              {/* Glow filter for the luminous effect */}
+              <filter id="petalGlow" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur"/>
                 <feColorMatrix in="blur" type="matrix"
                   values="1 0 0 0 0
-                          0 1 0 0 0
-                          0 0 1 0 0
-                          0 0 0 .90 0" result="soft"/>
-                <feBlend in="SourceGraphic" in2="soft" mode="screen"/>
+                          0 0.8 0 0 0
+                          0 0 1.2 0 0
+                          0 0 0 1 0" result="glow"/>
+                <feBlend in="SourceGraphic" in2="glow" mode="screen"/>
               </filter>
 
-              {/* Petal silhouette (long almond, round base; tip at -252) */}
-              <path id="fiorePetal"
-                d="M 0 -252
-                   C  72 -218, 130 -134, 100  -60
-                   C  74  -4,   26   50,   0   96
-                   C -26   50, -74   -4, -100  -60
-                   C -130 -134, -72 -218, 0  -252 Z" />
+              {/* Strong center glow */}
+              <radialGradient id="centerGlow">
+                <stop offset="0%" stopColor="#FFFFFF" stopOpacity="1"/>
+                <stop offset="20%" stopColor="#A8C5FF" stopOpacity="0.9"/>
+                <stop offset="50%" stopColor="#6B8FFF" stopOpacity="0.6"/>
+                <stop offset="100%" stopColor="#4A6FE8" stopOpacity="0"/>
+              </radialGradient>
+
+              {/* Petal shape - teardrop/almond pointing outward */}
+              <path id="petalShape"
+                d="M 0 0
+                   Q -35 -80, -25 -160
+                   Q -20 -200, 0 -220
+                   Q 20 -200, 25 -160
+                   Q 35 -80, 0 0 Z" />
             </defs>
 
-            {/* Under-flower halo */}
-            <circle cx="0" cy="0" r="210" fill="url(#fioreCanvasGlow)"/>
+            {/* Background glow emanating from center */}
+            <circle cx="0" cy="0" r="280" fill="url(#centerGlow)" opacity="0.4"/>
 
-            {/* Petals (additive) */}
-            <g id="petals" filter="url(#fioreSoftBloom)" style={{ mixBlendMode:'screen', isolation:'isolate' }}>
-              {Array.from({length:8}).map((_,i)=>(
-                <motion.g 
-                  key={i} 
-                  id={`petal-${i}`} 
-                  transform={`rotate(${i*45})`}
-                  whileHover={{ scale:1.02, filter:'drop-shadow(0 0 18px rgba(140,170,255,.9))' }}
-                  transition={{ duration:.18, ease:[.16,1,.3,1] }}
-                  style={{ transformOrigin: 'center' }}
-                >
-                  <use href="#fiorePetal" fill="url(#fiorePetalCore)"   opacity=".55"/>
-                  <use href="#fiorePetal" fill="url(#fiorePetalBody)"   opacity=".66"/>
-                  <use href="#fiorePetal" fill="url(#fiorePetalFeather)" opacity=".42"/>
-                  {/* faint vein hint (matches luminous inner lines) */}
-                  <path d="M0 -252 C 30 -190, 28 -118, 0 -40"
-                        fill="none" stroke="#C9D5FF" strokeOpacity=".08" strokeWidth="2" strokeLinecap="round"/>
-                  <path d="M0 -40 C -10 -8, -10 16, 0 40" fill="none"
-                        stroke="#C9D5FF" strokeOpacity=".04" strokeWidth="2" strokeLinecap="round"/>
-                </motion.g>
-              ))}
+            {/* 8 Petals radiating at 45° intervals */}
+            <g filter="url(#petalGlow)">
+              {Array.from({length:8}).map((_,i)=>{
+                const angle = i * 45;
+                return (
+                  <g 
+                    key={i} 
+                    transform={`rotate(${angle})`}
+                    style={{ transformOrigin: 'center' }}
+                  >
+                    <use 
+                      href="#petalShape" 
+                      fill="url(#petalGradient)"
+                      opacity="0.75"
+                      style={{ mixBlendMode: 'screen' }}
+                    />
+                  </g>
+                );
+              })}
             </g>
 
-            {/* Elliptical orbit (dev guide; keep at very low opacity in prod) */}
-            <g transform="scale(1, .92)">
-              <circle cx="0" cy="0" r="290" fill="none" stroke="#7A8CFF" strokeOpacity=".045" />
+            {/* Bright center point with starburst effect */}
+            <circle cx="0" cy="0" r="20" fill="#FFFFFF" opacity="0.95"/>
+            <circle cx="0" cy="0" r="35" fill="url(#centerGlow)" opacity="0.8"/>
+            
+            {/* Lens flare lines */}
+            <g opacity="0.6">
+              <line x1="-50" y1="0" x2="50" y2="0" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round"/>
+              <line x1="0" y1="-50" x2="0" y2="50" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round"/>
             </g>
           </svg>
 
