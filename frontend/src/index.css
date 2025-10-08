@@ -20,57 +20,57 @@ code {
 
 @layer base {
   :root {
-        --background: 0 0% 100%;
-        --foreground: 0 0% 3.9%;
-        --card: 0 0% 100%;
-        --card-foreground: 0 0% 3.9%;
-        --popover: 0 0% 100%;
-        --popover-foreground: 0 0% 3.9%;
-        --primary: 0 0% 9%;
-        --primary-foreground: 0 0% 98%;
-        --secondary: 0 0% 96.1%;
-        --secondary-foreground: 0 0% 9%;
-        --muted: 0 0% 96.1%;
-        --muted-foreground: 0 0% 45.1%;
-        --accent: 0 0% 96.1%;
-        --accent-foreground: 0 0% 9%;
+        /* Official Fiore Color Palette - See .github/fiore-color-palette.md */
+        
+        /* Background Colors */
+        --color-background: #0a0a0f;
+        
+        /* Petal Colors */
+        --color-petal-base: #1a2b5c;
+        --color-petal-mid: #2d4a8f;
+        --color-petal-highlight: #4d6bb3;
+        
+        /* Glow System */
+        --color-glow-core: #e8f4ff;
+        --color-glow-inner: #6b9fff;
+        --color-glow-mid: #4d7fcf;
+        --color-glow-outer: #2d4a8f;
+        
+        /* Text Colors */
+        --color-text-primary: #c5d9ff;
+        --color-text-secondary: #6b9fff;
+        --color-text-tertiary: #8ba8d9;
+        
+        /* Stroke Colors */
+        --color-stroke: #1a2b5c;
+        --color-stroke-highlight: #4d6bb3;
+        
+        /* shadcn/ui compatibility (mapped to Fiore palette) */
+        --background: 225 56% 4%; /* #0a0a0f */
+        --foreground: 219 100% 89%; /* #c5d9ff */
+        --card: 225 56% 23%; /* #1a2b5c */
+        --card-foreground: 219 100% 89%; /* #c5d9ff */
+        --popover: 222 52% 37%; /* #2d4a8f */
+        --popover-foreground: 219 100% 89%; /* #c5d9ff */
+        --primary: 219 100% 71%; /* #6b9fff */
+        --primary-foreground: 225 56% 4%; /* #0a0a0f */
+        --secondary: 222 40% 50%; /* #4d6bb3 */
+        --secondary-foreground: 219 100% 89%; /* #c5d9ff */
+        --muted: 225 56% 23%; /* #1a2b5c */
+        --muted-foreground: 218 52% 70%; /* #8ba8d9 */
+        --accent: 222 40% 50%; /* #4d6bb3 */
+        --accent-foreground: 219 100% 89%; /* #c5d9ff */
         --destructive: 0 84.2% 60.2%;
         --destructive-foreground: 0 0% 98%;
-        --border: 0 0% 89.8%;
-        --input: 0 0% 89.8%;
-        --ring: 0 0% 3.9%;
-        --chart-1: 12 76% 61%;
-        --chart-2: 173 58% 39%;
-        --chart-3: 197 37% 24%;
-        --chart-4: 43 74% 66%;
-        --chart-5: 27 87% 67%;
+        --border: 225 56% 23%; /* #1a2b5c */
+        --input: 222 52% 37%; /* #2d4a8f */
+        --ring: 219 100% 71%; /* #6b9fff */
+        --chart-1: 219 100% 71%; /* #6b9fff */
+        --chart-2: 217 58% 56%; /* #4d7fcf */
+        --chart-3: 222 40% 50%; /* #4d6bb3 */
+        --chart-4: 222 52% 37%; /* #2d4a8f */
+        --chart-5: 225 56% 23%; /* #1a2b5c */
         --radius: 0.5rem;
-    }
-  .dark {
-        --background: 0 0% 3.9%;
-        --foreground: 0 0% 98%;
-        --card: 0 0% 3.9%;
-        --card-foreground: 0 0% 98%;
-        --popover: 0 0% 3.9%;
-        --popover-foreground: 0 0% 98%;
-        --primary: 0 0% 98%;
-        --primary-foreground: 0 0% 9%;
-        --secondary: 0 0% 14.9%;
-        --secondary-foreground: 0 0% 98%;
-        --muted: 0 0% 14.9%;
-        --muted-foreground: 0 0% 63.9%;
-        --accent: 0 0% 14.9%;
-        --accent-foreground: 0 0% 98%;
-        --destructive: 0 62.8% 30.6%;
-        --destructive-foreground: 0 0% 98%;
-        --border: 0 0% 14.9%;
-        --input: 0 0% 14.9%;
-        --ring: 0 0% 83.1%;
-        --chart-1: 220 70% 50%;
-        --chart-2: 160 60% 45%;
-        --chart-3: 30 80% 55%;
-        --chart-4: 280 65% 60%;
-        --chart-5: 340 75% 55%;
     }
 }
 
@@ -83,4 +83,24 @@ code {
   body {
     @apply bg-background text-foreground;
     }
+}
+
+/* Add this to the bottom of your index.css file */
+
+@layer components {
+  .fiore-container {
+    @apply relative grid place-items-center;
+    
+    /* Responsive sizing for the container */
+    width: 55vw;
+    height: 55vw;
+    max-width: 680px;
+    max-height: 680px;
+    min-width: 480px;
+    min-height: 480px;
+  }
+  .fiore-graphic {
+    @apply w-full h-full; /* Uses Tailwind's w-full/h-full utilities */
+    grid-area: 1 / 1;
+  }
 }

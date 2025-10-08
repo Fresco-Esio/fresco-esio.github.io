@@ -13,6 +13,39 @@ module.exports = {
   			sm: 'calc(var(--radius) - 4px)'
   		},
   		colors: {
+  			// Official Fiore Color Palette
+  			// See .github/fiore-color-palette.md for full documentation
+  			
+  			// Background
+  			'space-black': '#0a0a0f',
+  			
+  			// Petals
+  			petal: {
+  				base: '#1a2b5c',
+  				mid: '#2d4a8f',
+  				highlight: '#4d6bb3',
+  			},
+  			
+  			// Glow System
+  			glow: {
+  				core: '#e8f4ff',
+  				inner: '#6b9fff',
+  				mid: '#4d7fcf',
+  				outer: '#2d4a8f',
+  			},
+  			
+  			// Text
+  			text: {
+  				primary: '#c5d9ff',
+  				secondary: '#6b9fff',
+  				tertiary: '#8ba8d9',
+  			},
+  			
+  			// Stroke
+  			stroke: '#1a2b5c',
+  			'stroke-highlight': '#4d6bb3',
+  			
+  			// shadcn/ui compatibility (mapped to Fiore palette)
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {
